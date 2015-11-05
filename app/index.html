@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html ng-app="StarterApp">
+
+<head>
+    <!-- Angular Material CSS -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.4/angular-material.min.css">
+    <link rel="stylesheet" href="css/player.rauks.org.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="UTF-8">
+</head>
+
+<body layout="column" layout-fill>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Morgen Leblanc</h2>
+        </div>
+    </md-toolbar>
+<md-content flex layout="column">
+        <md-content flex="50">
+            <md-list >
+
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex>
+                            <p>Lancer</p>
+                        </div>
+                        <div flex >
+                            <p>3</p>
+                        </div>
+                    </div>
+                </md-list-item>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex>
+                            <p>Relancer</p>
+                        </div>
+                        <div flex>
+                            <p>9</p>
+                        </div>
+                    </div>
+                </md-list-item>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex>
+                            <p>Viser</p>
+                        </div>
+                        <div flex>
+                            <p>6</p>
+                        </div>
+                    </div>
+                </md-list-item>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex>
+                            <p>Payer</p>
+                        </div>
+                        <div flex>
+                            <p>1230 ฿</p>
+                        </div>
+                    </div>
+                </md-list-item>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex>
+                            <p>Inventorier</p>
+                        </div>
+                        <div flex>
+                            <p>Vide</p>
+                        </div>
+                    </div>
+                </md-list-item>
+                <!--<md-divider></md-divider>-->
+
+            </md-list>
+        </md-content>
+        <md-content flex="auto">
+
+            <md-list>
+                <md-list-item class="md-2-line" ng-click="navigateTo()">
+                    <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Gunther Olsen</h3>
+                        <p>Blessé</p>
+                    </div>
+
+                </md-list-item>
+                <md-list-item class="md-2-line" ng-click="navigateTo()">
+                    <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Gunther Olsen</h3>
+                        <p>Blessé</p>
+                    </div>
+
+                </md-list-item>
+
+                <md-list-item class="md-2-line" ng-click="navigateTo()">
+                    <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Gunther Olsen</h3>
+                        <p>Blessé</p>
+                    </div>
+
+                </md-list-item>
+
+                <md-list-item class="md-2-line" ng-click="navigateTo()">
+                    <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Gunther Olsen</h3>
+                        <p>Blessé</p>
+                    </div>
+
+                </md-list-item>
+                <md-list-item class="md-2-line" ng-click="navigateTo()">
+                    <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Gunther Olsen</h3>
+                        <p>Blessé</p>
+                    </div>
+
+                </md-list-item>
+                <md-list-item class="md-2-line" ng-click="navigateTo()">
+                    <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Gunther Olsen</h3>
+                        <p>Blessé</p>
+                    </div>
+
+                </md-list-item>
+                <md-list-item class="md-2-line" ng-click="navigateTo()">
+                    <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
+                    <div class="md-list-item-text">
+                        <h3>Gunther Olsen</h3>
+                        <p>Blessé</p>
+                    </div>
+
+                </md-list-item>
+
+
+            </md-list>
+        </md-content>
+</md-content >
+    
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Jet MJ, Autres infos</h2>
+        </div>
+    </md-toolbar>
+
+    <!-- Angular Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.min.js"></script>
+
+    <!-- Angular Material  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.4/angular-material.min.js"></script>
+
+    <script src="js/player.rauks.org.js"></script>
+</body>
+
+</html>
