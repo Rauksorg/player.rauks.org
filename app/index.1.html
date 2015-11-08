@@ -12,22 +12,79 @@
     <meta charset="UTF-8">
 </head>
 
-<body layout="column">
+<body layout="column" layout-fill>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h2 class="md-flex">Morgen Leblanc</h2>
         </div>
     </md-toolbar>
-    <md-content layout="column">
-        <md-grid-list md-cols="2" md-gutter="1em" md-row-height="200px">
-            <md-grid-tile layout layout-align="center center" style="border-style:solid;border-color:white;">
-                <h3>A</h3></md-grid-tile>
-            <md-grid-tile>
-                <h3>B</h3></md-grid-tile>
-        </md-grid-list>
-
-        <md-content flex>
+    <md-content flex layout="column">
+        <md-content flex="40">
+            <div flex layout="row">
+            <md-list flex>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex="15">
+                            <p>Lancer</p>
+                        </div>
+                        <div flex layout layout-align="center center">
+                            <p>3</p>
+                        </div>
+                    </div>
+                </md-list-item>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex="15">
+                            <p>Relancer</p>
+                        </div>
+                        <div flex layout layout-align="center center">
+                            <p>9</p>
+                        </div>
+                    </div>
+                </md-list-item>
+            </md-list>
+            <md-list flex>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row" >
+                        <div flex="15">
+                            <p>Viser</p>
+                        </div>
+                        <div flex layout layout-align="center center">
+                            <p>6</p>
+                        </div>
+                    </div>
+                </md-list-item>
+                <md-list-item ng-click="navigateTo()">
+                    <div flex layout="row">
+                        <div flex="15">
+                            <p>Payer</p>
+                        </div>
+                        <div flex layout layout-align="center center">
+                            <p>1230 ฿</p>
+                        </div>
+                    </div>
+                </md-list-item>
+            </md-list>
+            </div>
             <md-list>
+            <md-list-item ng-click="navigateTo()">
+                <div flex layout="row">
+                    <div flex="15">
+                        <p>Inventorier</p>
+                    </div>
+                    <div flex layout layout-align="center center">
+                        <p>Vide</p>
+                    </div>
+                </div>
+            </md-list-item>
+            <md-divider></md-divider>
+
+            </md-list>
+        </md-content>
+        <md-content style="margin:0px;padding:0px;">
+
+            <md-list style="margin:0px;padding:0px;">
+                <!--<md-subheader style="margin:0px;padding:0px;">3 line item</md-subheader>-->
                 <md-list-item class="md-2-line" ng-click="navigateTo()">
                     <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" />
                     <div class="md-list-item-text">
@@ -86,6 +143,8 @@
                     </div>
 
                 </md-list-item>
+
+
             </md-list>
         </md-content>
     </md-content>
