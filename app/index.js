@@ -3,14 +3,22 @@ import ReactDOM from 'react-dom'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import {base} from 'redux/modules'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 
+import {base} from 'redux/modules'
 import {Home} from 'components'
+
+injectTapEventPlugin()
 
 const store = createStore(base, applyMiddleware(thunk))
 
-ReactDOM.render(
+const App = () => (
   <Provider store={store}>
-    <Home/>
-  </Provider>,
-document.getElementById('app'))
+    <MuiThemeProvider>
+      <Home/>
+    </MuiThemeProvider>
+  </Provider>
+)
+
+ReactDOM.render(<App/>, document.getElementById('app'))

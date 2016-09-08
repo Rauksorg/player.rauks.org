@@ -1,11 +1,8 @@
-const initialState = {
- 
-}
+const initialState = {}
 
-export default function base (state = initialState, action) {
+export default function base(state = initialState, action) {
   switch (action.type) {
-    
-    default :
-      return state
+
+    default: return state
   }
 }
