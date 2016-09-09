@@ -16,8 +16,10 @@ Container.defaultProps = {}
 // Stateless Functions
 import React from 'react'
 
-const Component = (props) => (
-  <div></div>
-)
+const Component = (props) => {
+  return(
+    <div></div>
+  )
+}
 
 Component.propTypes = {}

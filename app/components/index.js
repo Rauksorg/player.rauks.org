@@ -1,3 +1,6 @@
 export Home from './Home/Home'
 export PlayersList from './PlayersList/PlayersList'
 export ActionsBar from './ActionsBar/ActionsBar'
+export TabsNav from './TabsNav/TabsNav'
+export PlayerCharacter from './PlayerCharacter/PlayerCharacter'
+export DiceRoller from './DiceRoller/DiceRoller'

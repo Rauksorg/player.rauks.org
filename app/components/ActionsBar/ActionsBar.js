@@ -1,9 +1,9 @@
 import React from 'react'
 import FlatButton from 'material-ui/FlatButton'
 import Paper from 'material-ui/Paper'
+import { Link } from 'react-router'
 
-import { flexRow, flexColumn, buttonGrid, fullHeight, buttonHeight } from './styles.css'
-
+import { flexRow, flexColumn, buttonGrid, buttonHeight } from './styles.css'
 
 const buttonStyle = {
   height: '100%',
@@ -11,8 +11,8 @@ const buttonStyle = {
 }
 
 const style100 = {
-  height:'100%',
-  
+  height: '100%',
+
 }
 
 const ActionsBar = (props) => (
@@ -21,7 +21,9 @@ const ActionsBar = (props) => (
         <div className={flexRow}>
           <div className={flexColumn}>
             <div className={buttonHeight}>
+            <Link to={'/roll'}>
               <FlatButton label='Dés/Relances' style={buttonStyle} />
+            </Link>
             </div>
             <div className={buttonHeight}>
               <FlatButton label='Billets' style={buttonStyle} />
