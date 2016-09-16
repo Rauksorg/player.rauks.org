@@ -9,6 +9,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import Routes from './config/Routes'
 import { base } from 'redux/modules'
 
+import './styles.css'
+
 injectTapEventPlugin()
 
 const store = createStore(base, applyMiddleware(thunk))
@@ -16,12 +18,11 @@ const store = createStore(base, applyMiddleware(thunk))
 const App = () => {
   return (
     <Provider store={store}>
-    <MuiThemeProvider>
-     <Routes/>
-    </MuiThemeProvider>
-  </Provider>
+      <MuiThemeProvider>
+        <Routes/>
+      </MuiThemeProvider>
+    </Provider>
   )
 }
-
 
 ReactDOM.render(<App/>, document.getElementById('app'))

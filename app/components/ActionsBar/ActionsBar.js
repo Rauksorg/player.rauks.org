@@ -3,39 +3,26 @@ import FlatButton from 'material-ui/FlatButton'
 import Paper from 'material-ui/Paper'
 import { Link } from 'react-router'
 
-import { flexRow, flexColumn, buttonGrid, buttonHeight } from './styles.css'
+import { flexRow, flexColumn } from './styles.css'
 
 const buttonStyle = {
-  height: '100%',
+  height: '75px',
   width: '100%'
 }
 
-const style100 = {
-  height: '100%',
-
-}
-
 const ActionsBar = (props) => (
-  <div className={buttonGrid}>
-    <Paper zDepth={1} style={style100}>
+  <div >
+    <Paper zDepth={1}>
         <div className={flexRow}>
           <div className={flexColumn}>
-            <div className={buttonHeight}>
-            <Link to={'/roll'}>
+            <Link to='/game/roll'>
               <FlatButton label='Dés/Relances' style={buttonStyle} />
             </Link>
-            </div>
-            <div className={buttonHeight}>
-              <FlatButton label='Billets' style={buttonStyle} />
-            </div>
+            <FlatButton label='Billets' style={buttonStyle} />
           </div>
           <div className={flexColumn}>
-            <div className={buttonHeight}>
-              <FlatButton label='Munitions' style={buttonStyle} />
-            </div>
-            <div className={buttonHeight}>
-              <FlatButton label='Inventaire' style={buttonStyle} />
-            </div>
+            <FlatButton label='Munitions' style={buttonStyle} />
+            <FlatButton label='Inventaire' style={buttonStyle} />
           </div>
         </div>
       </Paper>

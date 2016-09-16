@@ -1,23 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router'
 import { List, ListItem } from 'material-ui/List'
-import Divider from 'material-ui/Divider'
 import Avatar from 'material-ui/Avatar'
-import StarIcon from 'material-ui/svg-icons/action/grade'
 
-const PlayersList = () => {
+
+const CharactersList = (props) => {
   return (
     <div>
       <List>
         <ListItem
-          primaryText={'MJ'}
-          leftAvatar={<Avatar src={'http://lorempixel.com/128/128/sports/2'} />}
-          secondaryText={''}
-          rightIcon={<StarIcon />} />
-        <Divider inset={true} />
-        <ListItem
-          primaryText={'Gunther Olsen (moi)'}
+          primaryText={'Gunther Olsen'}
           leftAvatar={<Avatar src='./assets/NeanSuit.jpg' />}
-          secondaryText={'Bléssé'} />
+          containerElement={<Link to='/lobby' />} />
         <ListItem
           primaryText={'Arakel Sarif'}
           leftAvatar={<Avatar src='./assets/Cowboy.jpg' />} />
@@ -29,4 +23,4 @@ const PlayersList = () => {
   )
 }
 
-export default PlayersList
+export default CharactersList

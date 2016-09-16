@@ -9,29 +9,29 @@ import SubjectIcon from 'material-ui/svg-icons/action/subject'
 
 const TabsNav = (props) => (
   <div>
-  <Tabs 
-    value='a' >
-    <Tab 
-      value='a'
-      icon={<AccountBoxIcon />} >
-      <div></div>
-    </Tab>
-    <Tab
-      value='b'
-      icon={<SubjectIcon />} >
-      <div></div>
-    </Tab>
-    <Tab
-      value='c'
-      icon={<Brushicon />} >
-      <div></div>
-    </Tab>
-    <Tab
-      value='d'
-      icon={<AssignmentIcon />} >
-      <div></div>
-    </Tab>
-  </Tabs>
+    <Tabs
+      value='a' >
+      <Tab
+        value='a'
+        icon={<AccountBoxIcon />} >
+        <div />
+      </Tab>
+      <Tab
+        value='b'
+        icon={<SubjectIcon />} >
+        <div />
+      </Tab>
+      <Tab
+        value='c'
+        icon={<Brushicon />} >
+        <div />
+      </Tab>
+      <Tab
+        value='d'
+        icon={<AssignmentIcon />} >
+        <div />
+      </Tab>
+    </Tabs>
   </div>
 )
 
