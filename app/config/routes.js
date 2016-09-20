@@ -1,14 +1,15 @@
 import React from 'react'
 import { Router, Route, hashHistory, IndexRoute, browserHistory } from 'react-router'
 
-import { Home, Board, DiceRoller, Authenticate, CharactersList, Lobby, BlueDice, OrangeDice, RedDice, BlackDice } from 'components'
+import { Board, DiceRoller, Authenticate, Lobby, BlueDice, OrangeDice, RedDice, BlackDice } from 'components'
+import { MainContainer, CharactersListContainer } from 'containers'
 
-const Routes = () => {
+const getRoutes  = () => {
   return (
     <Router history={hashHistory}>
-      <Route path='/' component={Home}>
+      <Route path='/' component={MainContainer}>
         <Route path='/auth' component={Authenticate}/>
-        <Route path='/characters' component={CharactersList}/>
+        <Route path='/characters' component={CharactersListContainer}/>
         <Route path='/lobby' component={Lobby}/>
         <Route path='/game' component={Board}/>
         <Route path='/game/roll' component={DiceRoller}/>
@@ -26,4 +27,4 @@ const Routes = () => {
   )
 }
 
-export default Routes
+export default getRoutes

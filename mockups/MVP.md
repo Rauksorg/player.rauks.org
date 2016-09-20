@@ -1,12 +1,12 @@
 Joueur
 ======
-* Voix
+* Voix --> bouton hangout
 * Auth
 * Fiche/création de perso
 * Relance/dés
 * Notepad perso/partagé
-* Munition (libre)
-* Argent (libre)
+* Munition
+* Argent
 
 MJ
 ======

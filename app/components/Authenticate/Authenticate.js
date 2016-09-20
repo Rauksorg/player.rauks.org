@@ -4,9 +4,9 @@ import FlatButton from 'material-ui/FlatButton'
 
 const Authenticate = (props) => {
   return(
-      <FlatButton 
-        label={'Login'} 
-        containerElement={<Link to='/characters' />} />
+    <FlatButton 
+      label={'Login'} 
+      containerElement={<Link to='/characters' />} />
   )
 }
 

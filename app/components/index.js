@@ -1,4 +1,4 @@
-export Home from './Home/Home'
+export ApplicationBar from './ApplicationBar/ApplicationBar'
 export PlayersList from './PlayersList/PlayersList'
 export ActionsBar from './ActionsBar/ActionsBar'
 export TabsNav from './TabsNav/TabsNav'

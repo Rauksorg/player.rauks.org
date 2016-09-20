@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 import { List, ListItem } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 
-
-const CharactersList = (props) => {
+const CharactersList = ({characterIds}) => {
+  console.warn({characterIds})
   return (
     <div>
       <List>
@@ -24,3 +24,7 @@ const CharactersList = (props) => {
 }
 
 export default CharactersList
+
+CharactersList.propTypes = { 
+  characterIds: React.PropTypes.object.isRequired,
+}
