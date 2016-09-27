@@ -10,7 +10,7 @@ const PlayersList = () => {
       <List>
         <ListItem
           primaryText={'MJ'}
-          leftAvatar={<Avatar src={'http://lorempixel.com/128/128/sports/2'} />}
+          leftAvatar={<Avatar src={'./assets/Cowboy.jpg'} />}
           secondaryText={''}
           rightIcon={<StarIcon />} />
         <Divider inset={true} />
@@ -23,7 +23,7 @@ const PlayersList = () => {
           leftAvatar={<Avatar src='./assets/Cowboy.jpg' />} />
         <ListItem
           primaryText={'Klaus Müller'}
-          leftAvatar={<Avatar src='http://lorempixel.com/128/128/sports/4' />} />
+          leftAvatar={<Avatar src='./assets/Cowboy.jpg' />} />
       </List>
     </div>
   )

@@ -4,7 +4,6 @@ import { List, ListItem } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 
 const CharactersList = ({characterIds}) => {
-  console.warn({characterIds})
   return (
     <div>
       <List>
@@ -17,7 +16,7 @@ const CharactersList = ({characterIds}) => {
           leftAvatar={<Avatar src='./assets/Cowboy.jpg' />} />
         <ListItem
           primaryText={'Klaus Müller'}
-          leftAvatar={<Avatar src='http://lorempixel.com/128/128/sports/4' />} />
+          leftAvatar={<Avatar src='./assets/Cowboy.jpg' />} />
       </List>
     </div>
   )

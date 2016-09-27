@@ -9,7 +9,7 @@ export function setTitle(newTitle) {
 
 const initialState = { title: 'Rauks Player' }
 
-export default function base(state = initialState, action) {
+export default function utils(state = initialState, action) {
   switch (action.type) {
   case SET_TITLE:
     return {

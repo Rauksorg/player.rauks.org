@@ -2,7 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import * as baseActionCreators from 'redux/modules/base'
+import * as baseActionCreators from 'redux/modules/utils'
 import { ApplicationBar } from 'components'
 import { fullHeightFlex } from './styles.css'
 
@@ -17,8 +17,8 @@ class MainContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ base }) => {
-  const { title } = base
+const mapStateToProps = ({ utils }) => {
+  const { title } = utils
   return {
     title
   }
