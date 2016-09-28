@@ -13,31 +13,29 @@ import { fullHeightFlex } from './styles.css'
 
 class MainContainer extends React.Component {
   componentDidMount() {
-    console.warn('did mount')
     firebaseAuth().onAuthStateChanged((user) => {
-      console.warn('firebase auth')
       if (user) {
-        console.warn('auth')
         const userData = user.providerData[0]
         const userInfo = formatUserInfo(userData.displayName, userData.photoURL, user.uid)
         this.props.authUser(user.uid)
         this.props.fetchingUserSuccess(user.uid, userInfo, Date.now())
       } else {
-        console.warn('not auth')
         this.props.removeFetchingUser()
       }
     })
   }
 
   render() {
-    return (
-      <div className={fullHeightFlex}>
+    // Return only if finished fetching
+    return this.props.isFetching === true
+      ? null
+      : <div className={fullHeightFlex}>
         <ApplicationBar 
           title={this.props.title}
           setTitle={this.props.setTitle} />
         {this.props.children}
       </div>
-    )
+    
   }
 }
 

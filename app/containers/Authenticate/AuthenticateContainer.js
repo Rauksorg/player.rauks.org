@@ -1,11 +1,9 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { hashHistory } from 'react-router'
 
 import * as userActionCreators from 'redux/modules/users'
 import * as utilActionCreators from 'redux/modules/utils'
-
 
 import { Authenticate } from 'components'
 
