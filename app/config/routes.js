@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, hashHistory, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { Board, DiceRoller, Lobby, BlueDice, OrangeDice, RedDice, BlackDice } from 'components'
 import { MainContainer, CharactersListContainer, AuthenticateContainer } from 'containers'

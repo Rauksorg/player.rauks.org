@@ -24,6 +24,6 @@ const CharactersList = ({characterIds}) => {
 
 export default CharactersList
 
-CharactersList.propTypes = { 
-  characterIds: React.PropTypes.object.isRequired,
+CharactersList.propTypes = {
+  characterIds: React.PropTypes.object.isRequired
 }

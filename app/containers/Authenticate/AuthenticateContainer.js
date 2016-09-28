@@ -14,7 +14,7 @@ class AuthenticateContainer extends React.Component {
     this.props.fetchAndHandleAuthedUser()
       .then(() => this.props.navigateTo('/characters'))
   }
-  render() {
+  render () {
     return (
       <Authenticate
         handleAuth={this.handleAuth}
@@ -33,7 +33,7 @@ const mapStateToProps = ({ users }) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({...userActionCreators, ...utilActionCreators }, dispatch)
+  return bindActionCreators({ ...userActionCreators, ...utilActionCreators }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthenticateContainer)
@@ -42,4 +42,5 @@ AuthenticateContainer.propTypes = {
   fetchAndHandleAuthedUser: React.PropTypes.func.isRequired,
   isFetching: React.PropTypes.bool.isRequired,
   error: React.PropTypes.string.isRequired,
+  navigateTo: React.PropTypes.func.isRequired
 }

@@ -2,16 +2,14 @@ import React from 'react'
 import FlatButton from 'material-ui/FlatButton'
 // import { flexRow, flexColumn } from './styles.css'
 
-
-const style={
-  flex: '1 1 auto',
+const style = {
+  flex: '1 1 auto'
 }
 
-const button={
-    width:'50%',
-    height:'200px'
+const button = {
+  width: '50%',
+  height: '200px'
 }
-
 
 const DiceRoller = (props) => {
   return (

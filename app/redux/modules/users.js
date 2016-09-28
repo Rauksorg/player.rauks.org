@@ -12,19 +12,19 @@ const REMOVE_FETCHING_USER = 'REMOVE_FETCHING_USER'
 export function authUser (uid) {
   return {
     type: AUTH_USER,
-    uid,
+    uid
   }
 }
 
 function unauthUser () {
   return {
-    type: UNAUTH_USER,
+    type: UNAUTH_USER
   }
 }
 
 function fetchingUser () {
   return {
-    type: FETCHING_USER,
+    type: FETCHING_USER
   }
 }
 
@@ -32,7 +32,7 @@ function fetchingUserFailure (error) {
   console.warn(error)
   return {
     type: FETCHING_USER_FAILURE,
-    error: 'Error fetching user.',
+    error: 'Error fetching user.'
   }
 }
 
@@ -41,7 +41,7 @@ export function fetchingUserSuccess (uid, user, timestamp) {
     type: FETCHING_USER_SUCCESS,
     uid,
     user,
-    timestamp,
+    timestamp
   }
 }
 
@@ -87,8 +87,8 @@ const initialUserState = {
   info: {
     name: '',
     uid: '',
-    avatar: '',
-  },
+    avatar: ''
+  }
 }
 
 function user (state = initialUserState, action) {
@@ -97,7 +97,7 @@ function user (state = initialUserState, action) {
       return {
         ...state,
         info: action.user,
-        lastUpdated: action.timestamp,
+        lastUpdated: action.timestamp
       }
     default :
       return state
@@ -108,7 +108,7 @@ const initialState = {
   isFetching: true,
   error: '',
   isAuthed: false,
-  authedId: '',
+  authedId: ''
 }
 
 export default function users (state = initialState, action) {
@@ -117,42 +117,42 @@ export default function users (state = initialState, action) {
       return {
         ...state,
         isAuthed: true,
-        authedId: action.uid,
+        authedId: action.uid
       }
     case UNAUTH_USER :
       return {
         ...state,
         isAuthed: false,
-        authedId: '',
+        authedId: ''
       }
     case FETCHING_USER:
       return {
         ...state,
-        isFetching: true,
+        isFetching: true
       }
     case FETCHING_USER_FAILURE:
       return {
         ...state,
         isFetching: false,
-        error: action.error,
+        error: action.error
       }
     case REMOVE_FETCHING_USER :
       return {
         ...state,
-        isFetching: false,
+        isFetching: false
       }
     case FETCHING_USER_SUCCESS:
       return action.user === null
         ? {
           ...state,
           isFetching: false,
-          error: '',
+          error: ''
         }
         : {
           ...state,
           isFetching: false,
           error: '',
-          [action.uid]: user(state[action.uid], action),
+          [action.uid]: user(state[action.uid], action)
         }
     default :
       return state

@@ -12,7 +12,7 @@ import { ApplicationBar } from 'components'
 import { fullHeightFlex } from './styles.css'
 
 class MainContainer extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
         const userData = user.providerData[0]
@@ -25,17 +25,16 @@ class MainContainer extends React.Component {
     })
   }
 
-  render() {
+  render () {
     // Return only if finished fetching
     return this.props.isFetching === true
       ? null
       : <div className={fullHeightFlex}>
-        <ApplicationBar 
+        <ApplicationBar
           title={this.props.title}
           setTitle={this.props.setTitle} />
         {this.props.children}
       </div>
-    
   }
 }
 
@@ -50,7 +49,7 @@ const mapStateToProps = ({ utils, users }) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({...utilActionCreators, ...userActionCreators }, dispatch)
+  return bindActionCreators({ ...utilActionCreators, ...userActionCreators }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)
@@ -63,4 +62,5 @@ MainContainer.propTypes = {
   fetchingUserSuccess: React.PropTypes.func.isRequired,
   isAuthed: React.PropTypes.bool.isRequired,
   isFetching: React.PropTypes.bool.isRequired,
+  removeFetchingUser: React.PropTypes.func.isRequired
 }

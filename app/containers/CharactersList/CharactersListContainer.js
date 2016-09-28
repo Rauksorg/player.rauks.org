@@ -7,13 +7,12 @@ import * as utilActionCreators from 'redux/modules/utils'
 import { CharactersList } from 'components'
 
 class CharactersListContainer extends React.Component {
-  componentDidMount() {
-    
-    this.props.setTitle(this.props.authedUser.name) 
+  componentDidMount () {
+    this.props.setTitle(this.props.authedUser.name)
   }
-  render() {
+  render () {
     return (
-      <CharactersList 
+      <CharactersList
         characterIds={this.props.characterIds} />
     )
   }
@@ -35,4 +34,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(CharactersListContai
 
 CharactersListContainer.propTypes = {
   characterIds: React.PropTypes.object.isRequired,
+  setTitle: React.PropTypes.func.isRequired,
+  authedUser: React.PropTypes.object.isRequired
 }

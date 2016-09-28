@@ -6,11 +6,11 @@ const ApplicationBar = ({ title, setTitle }) => {
     <AppBar
       title={title}
       zDepth={0}
-      onLeftIconButtonTouchTap={setTitle.bind(this,'hey')} />
+      onLeftIconButtonTouchTap={setTitle.bind(this, 'hey')} />
   )
 }
 
-ApplicationBar.propTypes = { 
+ApplicationBar.propTypes = {
   title: React.PropTypes.string.isRequired,
   setTitle: React.PropTypes.func.isRequired
 }
