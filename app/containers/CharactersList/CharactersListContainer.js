@@ -18,11 +18,11 @@ class CharactersListContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ characters, users }) => {
-  const { characterIds } = characters
+const mapStateToProps = ({ usersCharacters, users }) => {
+  const { characterIds } = usersCharacters
   return {
     characterIds,
-    authedUser: users[users.authedId].info // Bug when the page is refreshed
+    authedUser: users[users.authedId].info
   }
 }
 

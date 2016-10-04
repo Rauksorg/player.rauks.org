@@ -16,7 +16,7 @@ class MainContainer extends React.Component {
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
         const userData = user.providerData[0]
-        const userInfo = formatUserInfo(userData.displayName, userData.photoURL, user.uid)
+        const userInfo = formatUserInfo(userData.displayName, userData.photoURL, user.email, user.uid)
         this.props.authUser(user.uid)
         this.props.fetchingUserSuccess(user.uid, userInfo, Date.now())
       } else {

@@ -4,7 +4,7 @@
   "description": "Player for RPG rauks.ork",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --host $IP --port $PORT --content-base ./app/",
+    "start": "webpack-dev-server --host $IP --port $PORT --content-base ./app/ --history-api-fallback",
     "production": "webpack -p",
     "lint": "eslint app/.; exit 0",
     "fix": "eslint --fix app/.; exit 0"

@@ -1,22 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { List, ListItem } from 'material-ui/List'
+import Divider from 'material-ui/Divider'
 import Avatar from 'material-ui/Avatar'
+import AddIcon from 'material-ui/svg-icons/content/add'
 
-const CharactersList = ({characterIds}) => {
+const CharactersList = ({ characterIds }) => {
   return (
     <div>
       <List>
-        <ListItem
-          primaryText={'Gunther Olsen'}
-          leftAvatar={<Avatar src='./assets/NeanSuit.jpg' />}
-          containerElement={<Link to='/lobby' />} />
-        <ListItem
-          primaryText={'Arakel Sarif'}
-          leftAvatar={<Avatar src='./assets/Cowboy.jpg' />} />
-        <ListItem
-          primaryText={'Klaus Müller'}
-          leftAvatar={<Avatar src='./assets/Cowboy.jpg' />} />
+        {Object.keys(characterIds).map((id) => {
+          const current = characterIds[id]
+          return (
+            <ListItem
+              key={id}
+              primaryText={current.name}
+              leftAvatar={<Avatar src={`./assets/${current.avatar}.jpg`} />}
+              containerElement={<Link to='/lobby' />} />
+            
+        ) })}
+        <Divider inset={true} />
+        <ListItem 
+          primaryText={'Nouveau personage'}
+          leftAvatar={<Avatar icon={<AddIcon />} />} />
       </List>
     </div>
   )

@@ -6,13 +6,14 @@ import * as userActionCreators from 'redux/modules/users'
 import * as utilActionCreators from 'redux/modules/utils'
 
 import { Authenticate } from 'components'
+import { browserHistory } from 'react-router'
 
 class AuthenticateContainer extends React.Component {
 
   handleAuth = (e) => {
     e.preventDefault()
     this.props.fetchAndHandleAuthedUser()
-      .then(() => this.props.navigateTo('/characters'))
+      .then(()=>browserHistory.push('/characters'))
   }
   render () {
     return (

@@ -1,0 +1,8 @@
+{
+  UsersCharacters: {
+    UserUID: {
+      stats: { st: "3", pe: "3", re: "3", in: "3", sk: "3" },
+      skils: { 1: 21, 2: 23, 3: 2 }
+    }
+  }
+}

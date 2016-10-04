@@ -1,12 +1,12 @@
 import React from 'react'
-import { Router, Route, hashHistory, IndexRoute } from 'react-router'
+import { Router, Route, IndexRoute } from 'react-router'
 
 import { Board, DiceRoller, Lobby, BlueDice, OrangeDice, RedDice, BlackDice } from 'components'
 import { MainContainer, CharactersListContainer, AuthenticateContainer } from 'containers'
 
-const getRoutes = () => {
+const getRoutes = (history) => {
   return (
-    <Router history={hashHistory}>
+    <Router history={history}>
       <Route path='/' component={MainContainer}>
         <Route path='/auth' component={AuthenticateContainer}/>
         <Route path='/characters' component={CharactersListContainer}/>

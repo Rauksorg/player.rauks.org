@@ -1,3 +1,3 @@
 export utils from './utils'
-export characters from './characters'
+export usersCharacters from './usersCharacters'
 export users from './users'
