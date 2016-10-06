@@ -17,12 +17,12 @@ const CharactersList = ({ characterIds }) => {
               primaryText={current.name}
               leftAvatar={<Avatar src={`./assets/${current.avatar}.jpg`} />}
               containerElement={<Link to='/lobby' />} />
-            
         ) })}
         <Divider inset={true} />
         <ListItem 
           primaryText={'Nouveau personage'}
-          leftAvatar={<Avatar icon={<AddIcon />} />} />
+          leftAvatar={<Avatar icon={<AddIcon />} />} 
+          containerElement={<Link to='/newcharacter' />} />
       </List>
     </div>
   )

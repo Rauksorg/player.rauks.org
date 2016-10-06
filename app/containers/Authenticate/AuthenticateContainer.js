@@ -42,6 +42,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(AuthenticateContaine
 AuthenticateContainer.propTypes = {
   fetchAndHandleAuthedUser: React.PropTypes.func.isRequired,
   isFetching: React.PropTypes.bool.isRequired,
-  error: React.PropTypes.string.isRequired,
-  navigateTo: React.PropTypes.func.isRequired
+  error: React.PropTypes.string.isRequired
 }

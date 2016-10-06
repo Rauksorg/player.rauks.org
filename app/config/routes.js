@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Route, IndexRoute } from 'react-router'
 
 import { Board, DiceRoller, Lobby, BlueDice, OrangeDice, RedDice, BlackDice } from 'components'
-import { MainContainer, CharactersListContainer, AuthenticateContainer } from 'containers'
+import { MainContainer, CharactersListContainer, AuthenticateContainer, NewCharactersContainer } from 'containers'
 
 const getRoutes = (history) => {
   return (
@@ -10,6 +10,7 @@ const getRoutes = (history) => {
       <Route path='/' component={MainContainer}>
         <Route path='/auth' component={AuthenticateContainer}/>
         <Route path='/characters' component={CharactersListContainer}/>
+        <Route path='/newcharacter' component={NewCharactersContainer}/>
         <Route path='/lobby' component={Lobby}/>
         <Route path='/game' component={Board}/>
         <Route path='/game/roll' component={DiceRoller}/>
