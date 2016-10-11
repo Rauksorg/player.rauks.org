@@ -1,26 +1,20 @@
-const UPDATE_LAST_NAME = 'UPDATE_LAST_NAME'
-const UPDATE_FIRST_NAME = 'UPDATE_FIRST_NAME'
+import { Map} from 'immutable'
+
+const UPDATE_NAME = 'UPDATE_NAME'
 const UPDATE_AGE = 'UPDATE_AGE'
 const UPDATE_ETHNICITY = 'UPDATE_ETHNICITY'
 const UPDATE_GENDER = 'UPDATE_GENDER'
 
-export function updateLastName(lastName) {
+export function updateName(name) {
   return {
-    type: UPDATE_LAST_NAME,
-    lastName
-  }
-}
-
-export function updateFirstName(firstName) {
-  return {
-    type: UPDATE_FIRST_NAME,
-    firstName
+    type: UPDATE_NAME,
+    name
   }
 }
 
 export function updateAge(age) {
   return {
-    type: UPDATE_FIRST_NAME,
+    type: UPDATE_AGE,
     age
   }
 }
@@ -39,35 +33,26 @@ export function updateGender(gender) {
   }
 }
 
-const initialState = { 'lastName': '', 'firstName': '', 'age': '', 'ethnicity': '', 'gender': '' }
+const initialState = Map({ 'name': '', 'age': '', 'ethnicity': '', 'gender':'' })
 
 export default function newCharacters(state = initialState, action) {
   switch (action.type) {
-  case UPDATE_LAST_NAME:
-    return {
-      ...state,
-      lastName: action.lastName
-    }
-  case UPDATE_FIRST_NAME:
-    return {
-      ...state,
-      firstName: action.firstName
-    }
+  case UPDATE_NAME:
+    return state.merge({
+      name: action.name
+    })
   case UPDATE_AGE:
-    return {
-      ...state,
+    return state.merge({
       age: action.age
-    }
+    })
   case UPDATE_ETHNICITY:
-    return {
-      ...state,
+    return state.merge({
       ethnicity: action.ethnicity
-    }
+    })
   case UPDATE_GENDER:
-    return {
-      ...state,
+    return state.merge({
       gender: action.gender
-    }
+    })
   default:
     return state
   }

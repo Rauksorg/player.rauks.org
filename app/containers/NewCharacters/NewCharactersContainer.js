@@ -1,3 +1,5 @@
+//bug : very slow to update names because of all redraw
+
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -9,28 +11,29 @@ class NewCharactersContainer extends React.Component {
   
   ethnicityHandleChange = (event, index, value) => this.props.updateEthnicity(value)
   genderHandleChange = (event, value) => this.props.updateGender(value)
-  firstNameHandleChange = (event) => this.props.updateFirstName(event.target.value)
+  nameHandleChange = (event) => this.props.updateName(event.target.value)
+  ageHandleChange = (event) => this.props.updateAge(event.target.value)
   render() {
     return (
       <NewCharacters
         ethnicityHandleChange={this.ethnicityHandleChange} 
         genderHandleChange={this.genderHandleChange}
-        firstNameHandleChange={this.firstNameHandleChange}
+        nameHandleChange={this.nameHandleChange}
+        ageHandleChange={this.ageHandleChange}
         ethnicity={this.props.ethnicity} 
         gender={this.props.gender} 
-        firstName={this.props.firstName} />
+        name={this.props.name} 
+        age={this.props.age} />
     )
   }
 }
 
-const mapStateToProps = ({newCharacters}) => {
-  const { lastName, firstName, age, ethnicity, gender } = newCharacters
+const mapStateToProps = ({ newCharacters }) => {
   return {
-    lastName,
-    firstName,
-    age,
-    ethnicity,
-    gender
+    name: newCharacters.get('name'),
+    age: newCharacters.get('age'),
+    ethnicity: newCharacters.get('ethnicity'),
+    gender: newCharacters.get('gender')
   }
 }
 
