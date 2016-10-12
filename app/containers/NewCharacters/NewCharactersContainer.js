@@ -13,6 +13,7 @@ class NewCharactersContainer extends React.Component {
   genderHandleChange = (event, value) => this.props.updateGender(value)
   nameHandleChange = (event) => this.props.updateName(event.target.value)
   ageHandleChange = (event) => this.props.updateAge(event.target.value)
+  handlePhysicalSlider = (event, value) => this.props.updatePhysical(value)
   render() {
     return (
       <NewCharacters
@@ -23,7 +24,9 @@ class NewCharactersContainer extends React.Component {
         ethnicity={this.props.ethnicity} 
         gender={this.props.gender} 
         name={this.props.name} 
-        age={this.props.age} />
+        age={this.props.age}
+        physical={this.props.physical}
+        handlePhysicalSlider={this.handlePhysicalSlider} />
     )
   }
 }
@@ -33,7 +36,15 @@ const mapStateToProps = ({ newCharacters }) => {
     name: newCharacters.get('name'),
     age: newCharacters.get('age'),
     ethnicity: newCharacters.get('ethnicity'),
-    gender: newCharacters.get('gender')
+    gender: newCharacters.get('gender'),
+    
+    physical: newCharacters.getIn(['stats','physical']),
+    
+    perception: newCharacters.getIn(['stats','perception']),
+    mental: newCharacters.getIn(['stats','mental']),
+    social: newCharacters.getIn(['stats','social']),
+    reroll: newCharacters.getIn(['stats','reroll']),
+    skill: newCharacters.getIn(['stats','skill']),
   }
 }
 
