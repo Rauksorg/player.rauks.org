@@ -1,4 +1,4 @@
-import { Map} from 'immutable'
+import { Map, fromJS } from 'immutable'
 
 const UPDATE_NAME = 'UPDATE_NAME'
 const UPDATE_AGE = 'UPDATE_AGE'
@@ -81,7 +81,7 @@ export function updateSkill(skill) {
   }
 }
 
-const initialState = Map({ 'name': '', 'age': '', 'ethnicity': '', 'gender': '', 'stats': Map({ 'physical': 3, 'perception': 2, 'mental': 2, 'social': 2, 'reroll': 2, 'skil': 2 }) })
+const initialState = fromJS({ 'name': '', 'age': '', 'ethnicity': '', 'gender': '', 'stats': { 'physical': 2, 'perception': 2, 'mental': 2, 'social': 2, 'reroll': 2, 'skill': 2 } })
 
 export default function newCharacters(state = initialState, action) {
   switch (action.type) {
@@ -101,31 +101,29 @@ export default function newCharacters(state = initialState, action) {
     return state.merge({
       gender: action.gender
     })
-    
-    // BUG : Need to find a way to merge stats
   case UPDATE_PHYSICAL:
-    return state.merge({
-      stats:({physical: action.physical})
+    return state.mergeDeep({
+      stats: ({ physical: action.physical })
     })
   case UPDATE_PERCEPTION:
-    return state.merge({
-      stats:{perception:action.perception}
+    return state.mergeDeep({
+      stats: ({ perception: action.perception })
     })
   case UPDATE_MENTAL:
-    return state.merge({
-      [stats.mental]: action.mental
+    return state.mergeDeep({
+      stats: ({ mental: action.mental })
     })
   case UPDATE_SOCIAL:
-    return state.merge({
-      [stats.social]: action.social
+    return state.mergeDeep({
+      stats: ({ social: action.social })
     })
   case UPDATE_REROLL:
-    return state.merge({
-      [stats.reroll]: action.reroll
+    return state.mergeDeep({
+      stats: ({ reroll: action.reroll })
     })
   case UPDATE_SKILL:
-    return state.merge({
-      [stats.skill]: action.skill
+    return state.mergeDeep({
+      stats: ({ skill: action.skill })
     })
   default:
     return state

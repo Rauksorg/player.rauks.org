@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as newCharactersActionCreators from 'redux/modules/newCharacters'
-import {NewCharacters} from 'components'
+import {NewCharacName, NewCharacSkill, NewCharacStats} from 'components'
 
 class NewCharactersContainer extends React.Component {
   
@@ -13,20 +13,38 @@ class NewCharactersContainer extends React.Component {
   genderHandleChange = (event, value) => this.props.updateGender(value)
   nameHandleChange = (event) => this.props.updateName(event.target.value)
   ageHandleChange = (event) => this.props.updateAge(event.target.value)
-  handlePhysicalSlider = (event, value) => this.props.updatePhysical(value)
+  
   render() {
     return (
-      <NewCharacters
-        ethnicityHandleChange={this.ethnicityHandleChange} 
-        genderHandleChange={this.genderHandleChange}
-        nameHandleChange={this.nameHandleChange}
-        ageHandleChange={this.ageHandleChange}
-        ethnicity={this.props.ethnicity} 
-        gender={this.props.gender} 
-        name={this.props.name} 
-        age={this.props.age}
-        physical={this.props.physical}
-        handlePhysicalSlider={this.handlePhysicalSlider} />
+      <div>
+        <NewCharacName 
+          ethnicityHandleChange={this.ethnicityHandleChange}
+          genderHandleChange={this.genderHandleChange}
+          nameHandleChange={this.nameHandleChange}
+          ageHandleChange={this.ageHandleChange}
+          ethnicity={this.props.ethnicity}
+          gender={this.props.gender}
+          name={this.props.name}
+          age={this.props.age} />
+        <br/>
+        <br/>
+        <NewCharacStats 
+          updatePhysical={this.props.updatePhysical}
+          updatePerception={this.props.updatePerception}
+          updateMental={this.props.updateMental}
+          updateSocial={this.props.updateSocial}
+          updateSkill={this.props.updateSkill}
+          updateReroll={this.props.updateReroll}
+          physical={this.props.physical}
+          perception={this.props.perception}
+          mental={this.props.mental}
+          social={this.props.social}
+          skill={this.props.skill}
+          reroll={this.props.reroll} />
+        <br/>
+        <br/>
+        <NewCharacSkill />
+      </div>
     )
   }
 }
@@ -39,7 +57,6 @@ const mapStateToProps = ({ newCharacters }) => {
     gender: newCharacters.get('gender'),
     
     physical: newCharacters.getIn(['stats','physical']),
-    
     perception: newCharacters.getIn(['stats','perception']),
     mental: newCharacters.getIn(['stats','mental']),
     social: newCharacters.getIn(['stats','social']),
