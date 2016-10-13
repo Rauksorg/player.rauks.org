@@ -7,27 +7,27 @@ import SupervisorAccountIcon from 'material-ui/svg-icons/action/supervisor-accou
 import DirectionsRunIcon from 'material-ui/svg-icons/maps/directions-run'
 import CasinoIcon from 'material-ui/svg-icons/places/casino'
 
-const NewCharacStats = ({ updatePhysical,updatePerception,updateMental,updateSocial,updateSkill,updateReroll, physical, perception, mental, social, skill, reroll }) => {
-  const caracList = [{ icon: <DirectionsRunIcon/>, value: physical, onChange: (event, value) => updatePhysical(value) }, { icon: <HearingIcon/>, value: perception, onChange: (event, value) => updatePerception(value) }, { icon: <LightbulbOutlineIcon/>, value: mental, onChange: (event, value) => updateMental(value) }, { icon: <SupervisorAccountIcon/>, value: social, onChange: (event, value) => updateSocial(value) }, { icon: <CasinoIcon/>, value: reroll, onChange: (event, value) => updateReroll(value) }, { icon: <BookIcon/>, value: skill, onChange: (event, value) => updateSkill(value) }]
+const NewCharacStats = ({ updatePhysical, updatePerception, updateMental, updateSocial, updateSkill, updateReroll, physical, perception, mental, social, skill, reroll }) => {
+  const statsList = [{ icon: <DirectionsRunIcon/>, value: physical, onChange: (event, value) => updatePhysical(value) }, { icon: <HearingIcon/>, value: perception, onChange: (event, value) => updatePerception(value) }, { icon: <LightbulbOutlineIcon/>, value: mental, onChange: (event, value) => updateMental(value) }, { icon: <SupervisorAccountIcon/>, value: social, onChange: (event, value) => updateSocial(value) }, { icon: <CasinoIcon/>, value: reroll, onChange: (event, value) => updateReroll(value) }, { icon: <BookIcon/>, value: skill, onChange: (event, value) => updateSkill(value) }]
   const styles = {
     root: {
       display: 'flex',
       height: 124,
       flexDirection: 'row',
-      justifyContent: 'space-around',
+      justifyContent: 'space-around'
     },
     div: {
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'column'
     }
   }
   return (
     <div style={styles.root}>
-        {caracList.map((id, index) => {
-          return(
+        {statsList.map((id, index) => {
+          return (
             <div style={styles.div} key={index}>
-              <div style={{display:'flex'}}>{id.icon}</div>
-              <div style={{display:'flex', justifyContent:'center'}}>
+              <div style={{display: 'flex'}}>{id.icon}</div>
+              <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Slider
                   value={id.value}
                   onChange={id.onChange}
@@ -38,7 +38,7 @@ const NewCharacStats = ({ updatePhysical,updatePerception,updateMental,updateSoc
                   step={1} />
                 </div>
               </div>
-        )})}
+        ) })}
       </div>
   )
 }

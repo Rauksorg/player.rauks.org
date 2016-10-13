@@ -1,6 +1,6 @@
 import React from 'react'
 import FlatButton from 'material-ui/FlatButton'
-import {GooggleIcon} from 'components/Icons/Icons'
+import {GooggleIcon} from 'components/Icons'
 
 const Authenticate = ({ handleAuth }) => {
   return (

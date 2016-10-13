@@ -19,9 +19,9 @@ const CharactersList = ({ characterIds }) => {
               containerElement={<Link to='/lobby' />} />
         ) })}
         <Divider inset={true} />
-        <ListItem 
+        <ListItem
           primaryText={'Nouveau personage'}
-          leftAvatar={<Avatar icon={<AddIcon />} />} 
+          leftAvatar={<Avatar icon={<AddIcon />} />}
           containerElement={<Link to='/newcharacter' />} />
       </List>
     </div>

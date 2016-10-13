@@ -13,7 +13,7 @@ class AuthenticateContainer extends React.Component {
   handleAuth = (e) => {
     e.preventDefault()
     this.props.fetchAndHandleAuthedUser()
-      .then(()=>browserHistory.push('/characters'))
+      .then(() => browserHistory.push('/characters'))
   }
   render () {
     return (

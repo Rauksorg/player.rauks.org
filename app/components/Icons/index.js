@@ -1,0 +1,5 @@
+export FemaleCheckedIcon from './FemaleCheckedIcon'
+export FemaleIcon from './FemaleIcon'
+export GooggleIcon from './GooggleIcon'
+export MaleCheckedIcon from './MaleCheckedIcon'
+export MaleIcon from './MaleIcon'

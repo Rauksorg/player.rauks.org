@@ -8,7 +8,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { browserHistory } from 'react-router'
 
-
 import getRoutes from './config/routes'
 import * as reducers from 'redux/modules'
 

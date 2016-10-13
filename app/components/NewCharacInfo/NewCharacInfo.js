@@ -4,9 +4,9 @@ import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 
-import {MaleIcon, MaleCheckedIcon, FemaleIcon, FemaleCheckedIcon} from 'components/Icons/Icons'
+import {MaleIcon, MaleCheckedIcon, FemaleIcon, FemaleCheckedIcon} from 'components/Icons'
 
-const NewCharacName = ({ ethnicityHandleChange, genderHandleChange, nameHandleChange, ageHandleChange, ethnicity, gender, name, age }) => {
+const NewCharacInfo = ({ ethnicityHandleChange, genderHandleChange, nameHandleChange, ageHandleChange, ethnicity, gender, name, age }) => {
   const ethnie = ['Impérial', 'Nordique', 'Bassier', 'Orque Gris', 'Orque Clair', 'Orque Noir']
 
   return (
@@ -19,21 +19,21 @@ const NewCharacName = ({ ethnicityHandleChange, genderHandleChange, nameHandleCh
       {ethnie.map((id, index) => {
         return (
           [<MenuItem key={index} value={index} primaryText={id} />]
-            )})}
+            ) })}
     </SelectField>
     <br/>
     <br/>
     <RadioButtonGroup
       name='gender'
       style={{display: 'flex', flexDirection: 'row'}}
-      onChange={genderHandleChange} 
+      onChange={genderHandleChange}
       valueSelected={gender} >
-        <RadioButton style={{display: 'flex', width:'75px'}}
+        <RadioButton style={{display: 'flex', width: '75px'}}
           checkedIcon={<FemaleCheckedIcon />}
           uncheckedIcon={<FemaleIcon />}
           value='female'
           label='F' />
-        <RadioButton style={{display: 'flex', width:'75px'}}
+        <RadioButton style={{display: 'flex', width: '75px'}}
           checkedIcon={<MaleCheckedIcon />}
           uncheckedIcon={<MaleIcon />}
           value='male'
@@ -41,18 +41,18 @@ const NewCharacName = ({ ethnicityHandleChange, genderHandleChange, nameHandleCh
       </RadioButtonGroup>
       <TextField
         hintText='Entrez le nom de votre personnage'
-        floatingLabelText='Nom' 
+        floatingLabelText='Nom'
         fullWidth={true}
         onChange={nameHandleChange}
         value={name} />
       <br/>
       <TextField
         hintText='Entrez l&apos;age de votre personnage'
-        floatingLabelText='Age' 
+        floatingLabelText='Age'
         onChange={ageHandleChange}
         value={age} />
       </div>
   )
 }
 
-export default NewCharacName
+export default NewCharacInfo
