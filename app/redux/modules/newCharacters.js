@@ -143,12 +143,12 @@ export default function newCharacters (state = initialState, action) {
       })
     case ADD_SKILL:
       return state.mergeDeep({
-        stats: ({ skill: action.skillId })
+        skill: ({ [action.skillId]: true })
       })
     case REMOVE_SKILL:
-      return state.mergeDeep({
-        stats: ({ skill: action.skillId })
-      })
+      return state.deleteIn([
+        'skill', action.skillId
+      ])
     default:
       return state
   }
