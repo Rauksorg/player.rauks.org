@@ -97,7 +97,7 @@ export function removeSkill (skillId) {
   }
 }
 
-const initialState = fromJS({ 'name': '', 'age': '', 'ethnicity': '', 'gender': '', 'stats': { 'physical': 2, 'perception': 2, 'mental': 2, 'social': 2, 'reroll': 2, 'skill': 2 }, 'skill': {} })
+const initialState = fromJS({ 'name': '', 'age': '', 'ethnicity': '', 'gender': '', 'stats': { 'physical': 2, 'perception': 2, 'mental': 2, 'social': 2, 'reroll': 2, 'skill': 2 }, 'skills': {'100':true} })
 
 export default function newCharacters (state = initialState, action) {
   switch (action.type) {
@@ -143,11 +143,11 @@ export default function newCharacters (state = initialState, action) {
       })
     case ADD_SKILL:
       return state.mergeDeep({
-        skill: ({ [action.skillId]: true })
+        skills: ({ [action.skillId]: true })
       })
     case REMOVE_SKILL:
       return state.deleteIn([
-        'skill', action.skillId
+        'skills', action.skillId
       ])
     default:
       return state

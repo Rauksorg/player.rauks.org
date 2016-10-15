@@ -43,7 +43,10 @@ class NewCharactersContainer extends React.Component {
           reroll={this.props.reroll} />
         <br/>
         <br/>
-        <NewCharacSkill />
+        <NewCharacSkill 
+          addSkill={this.props.addSkill}
+          removeSkill={this.props.removeSkill}
+          skillsList={this.props.skillsList} />
       </div>
     )
   }
@@ -61,7 +64,9 @@ const mapStateToProps = ({ newCharacters }) => {
     mental: newCharacters.getIn(['stats', 'mental']),
     social: newCharacters.getIn(['stats', 'social']),
     reroll: newCharacters.getIn(['stats', 'reroll']),
-    skill: newCharacters.getIn(['stats', 'skill'])
+    skill: newCharacters.getIn(['stats', 'skill']),
+    
+    skillsList : newCharacters.get('skills')
   }
 }
 
