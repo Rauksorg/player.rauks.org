@@ -1,14 +1,18 @@
 // bug : very slow to update names because of all redraw
+// Spilt into 3 container
 
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+
+import FlatButton from 'material-ui/FlatButton'
 
 import * as newCharactersActionCreators from 'redux/modules/newCharacters'
 import {NewCharacInfo, NewCharacSkill, NewCharacStats} from 'components'
 
 class NewCharactersContainer extends React.Component {
 
+// Need to change to directly pass the funcion to the component like for NewCharacStat
   ethnicityHandleChange = (event, index, value) => this.props.updateEthnicity(value)
   genderHandleChange = (event, value) => this.props.updateGender(value)
   nameHandleChange = (event) => this.props.updateName(event.target.value)
@@ -46,27 +50,28 @@ class NewCharactersContainer extends React.Component {
         <NewCharacSkill 
           addSkill={this.props.addSkill}
           removeSkill={this.props.removeSkill}
-          skillsList={this.props.skillsList} />
+          skillsList={this.props.skillsList} 
+          newCharacterFanout={this.props.newCharacterFanout}/>
+        <FlatButton label='Sauver' onClick={()=>this.props.newCharacterFanout(this.props.newCharacters)} />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ newCharacters }) => {
+const mapStateToProps = ({ newCharacters, users }) => {
   return {
     name: newCharacters.get('name'),
     age: newCharacters.get('age'),
     ethnicity: newCharacters.get('ethnicity'),
     gender: newCharacters.get('gender'),
-
     physical: newCharacters.getIn(['stats', 'physical']),
     perception: newCharacters.getIn(['stats', 'perception']),
     mental: newCharacters.getIn(['stats', 'mental']),
     social: newCharacters.getIn(['stats', 'social']),
     reroll: newCharacters.getIn(['stats', 'reroll']),
     skill: newCharacters.getIn(['stats', 'skill']),
-    
-    skillsList : newCharacters.get('skills')
+    skillsList : newCharacters.get('skills'),
+    newCharacters:newCharacters.toJS()
   }
 }
 

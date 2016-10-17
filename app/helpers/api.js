@@ -16,3 +16,12 @@ export function fetchUser (uid) {
   return ref.child(`users/${uid}`).once('value')
     .then((snapshot) => snapshot.val())
 }
+
+export function saveCharacterFirebase(newCharacter) {
+  if(!newCharacter.ownerId) throw new Error('No ownerId provided')
+  const newCharacterKey = ref.child('characters').push().key
+  const updates = {}
+  updates[`/characters/${newCharacterKey}`] = newCharacter
+  updates[`/usersCharacters/${newCharacter.ownerId}/${newCharacterKey}`] = newCharacter
+  return ref.update(updates)
+}
