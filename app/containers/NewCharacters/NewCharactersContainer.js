@@ -12,6 +12,9 @@ import * as newCharactersActionCreators from 'redux/modules/newCharacters'
 import {NewCharacInfo, NewCharacSkill, NewCharacStats} from 'components'
 
 class NewCharactersContainer extends React.Component {
+  componentDidMount () {
+    this.props.resetCharacter()
+  }
 
 // Need to change to directly pass the funcion to the component like for NewCharacStat
   ethnicityHandleChange = (event, index, value) => this.props.updateEthnicity(value)

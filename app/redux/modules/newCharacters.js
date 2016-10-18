@@ -18,6 +18,8 @@ const SAVE_CHARACTER = 'SAVE_CHARACTER'
 const SAVE_CHARACTER_ERROR = 'SAVE_CHARACTER_ERROR'
 const SAVE_CHARACTER_SUCCESS = 'SAVE_CHARACTER_SUCCESS'
 
+const RESET_CHARACTER = 'RESET_CHARACTER'
+
 export function newCharacterFanout (newCharacter) {
   return function (dispatch, getState) {
     dispatch(saveCharacter())
@@ -26,6 +28,12 @@ export function newCharacterFanout (newCharacter) {
       .then(dispatch(saveCharacterSuccess()))
       // Catch do not catch error
       .catch((error) => dispatch(saveCharacterError(error)))
+  }
+}
+
+export function resetCharacter (){
+  return {
+    type : RESET_CHARACTER
   }
 }
 
@@ -132,10 +140,12 @@ export function removeSkill (skillId) {
 }
 
 // need to add is saving to the state ?
-const initialState = fromJS({ 'name': '', 'age': '', 'ethnicity': '', 'gender': '', 'stats': { 'physical': 2, 'perception': 2, 'mental': 2, 'social': 2, 'reroll': 2, 'skill': 2 }, 'skills': {} })
+const initialState = fromJS({ name: '', age: '', ethnicity: '', gender: '', stats: { physical: 2, perception: 2, mental: 2, social: 2, reroll: 2, skill: 2 }, skills: {},avatar:'Cowboy' })
 
 export default function newCharacters (state = initialState, action) {
   switch (action.type) {
+    case RESET_CHARACTER :
+      return fromJS({ name: '', age: '', ethnicity: '', gender: '', stats: { physical: 2, perception: 2, mental: 2, social: 2, reroll: 2, skill: 2 }, skills: {},avatar:'Cowboy' })
     case SAVE_CHARACTER:
       return state
     case SAVE_CHARACTER_SUCCESS:

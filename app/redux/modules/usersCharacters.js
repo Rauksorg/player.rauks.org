@@ -34,14 +34,14 @@ export function fetchAndHandleUsersCharacters() {
   }
 }
 
-const initialState = { characterIds: {} }
+const initialState = { characterIds: { } }
 
 export default function usersCharacters(state = initialState, action) {
   switch (action.type) {
   case FETCHING_USERS_CHARACTERS_SUCCESS:
     return {
       ...state,
-      characterIds:action.characters
+      characterIds:action.characters || {}
     }
   default:
     return state
