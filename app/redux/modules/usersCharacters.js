@@ -1,22 +1,49 @@
-const ADD_USERS_CHARACTER = 'ADD_USERS_CHARACTER'
+import { fetchUsersCharacters } from 'helpers/api'
 
-export function addCharacter (newCharacter) {
+const FETCHING_USERS_CHARACTERS = 'FETCHING_USERS_CHARACTERS'
+const FETCHING_USERS_CHARACTERS_SUCCESS = 'FETCHING_USERS_CHARACTERS_SUCCESS'
+const FETCHING_USERS_CHARACTERS_ERROR = 'FETCHING_USERS_CHARACTERS_ERROR'
+
+export function fetchingUsersCharacters() {
   return {
-    type: ADD_USERS_CHARACTER,
-    newCharacter
+    type: FETCHING_USERS_CHARACTERS
   }
 }
 
-const initialState = {characterIds: {abcud123: {name: 'Gunther Olsen', avatar: 'NeanSuit'}, ffsjfhsekf3344: {name: 'Arakel Sarif', avatar: 'Cowboy'}, vdhkfh53452: {name: 'Klaus Müller', avatar: 'Cowboy'}}}
+export function fetchingUsersCharactersSuccess(characters) {
+  return {
+    type: FETCHING_USERS_CHARACTERS_SUCCESS,
+    characters
+  }
+}
 
-export default function usersCharacters (state = initialState, action) {
+export function fetchingUsersCharactersError(error) {
+  return {
+    type: FETCHING_USERS_CHARACTERS_ERROR,
+    error
+  }
+}
+
+export function fetchAndHandleUsersCharacters() {
+  return function (dispatch, getState) {
+    dispatch(fetchingUsersCharacters())
+    const userId = getState().users.authedId
+    return fetchUsersCharacters(userId)
+      .then((characters) => dispatch(fetchingUsersCharactersSuccess(characters)))
+      .catch((error) => dispatch(fetchingUsersCharactersError(error)))
+  }
+}
+
+const initialState = { characterIds: {} }
+
+export default function usersCharacters(state = initialState, action) {
   switch (action.type) {
-    case ADD_USERS_CHARACTER:
-      return {
-        ...state,
-        ...action.newCharacter
-      }
-    default:
-      return state
+  case FETCHING_USERS_CHARACTERS_SUCCESS:
+    return {
+      ...state,
+      characterIds:action.characters
+    }
+  default:
+    return state
   }
 }

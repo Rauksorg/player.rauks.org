@@ -4,6 +4,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 
 import FlatButton from 'material-ui/FlatButton'
 
@@ -47,12 +48,12 @@ class NewCharactersContainer extends React.Component {
           reroll={this.props.reroll} />
         <br/>
         <br/>
-        <NewCharacSkill 
+        <NewCharacSkill
           addSkill={this.props.addSkill}
           removeSkill={this.props.removeSkill}
-          skillsList={this.props.skillsList} 
+          skillsList={this.props.skillsList}
           newCharacterFanout={this.props.newCharacterFanout}/>
-        <FlatButton label='Sauver' onClick={()=>this.props.newCharacterFanout(this.props.newCharacters)} />
+        <FlatButton label='Sauver' onClick={() => this.props.newCharacterFanout(this.props.newCharacters).then(() => browserHistory.push('/characters'))} />
       </div>
     )
   }
@@ -70,8 +71,8 @@ const mapStateToProps = ({ newCharacters, users }) => {
     social: newCharacters.getIn(['stats', 'social']),
     reroll: newCharacters.getIn(['stats', 'reroll']),
     skill: newCharacters.getIn(['stats', 'skill']),
-    skillsList : newCharacters.get('skills'),
-    newCharacters:newCharacters.toJS()
+    skillsList: newCharacters.get('skills'),
+    newCharacters: newCharacters.toJS()
   }
 }
 

@@ -3,11 +3,15 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as utilActionCreators from 'redux/modules/utils'
+import * as usersCharactersActionCreators from 'redux/modules/usersCharacters'
 
 import { CharactersList } from 'components'
 
+
+// Need to handle characters default photo
 class CharactersListContainer extends React.Component {
   componentDidMount () {
+    this.props.fetchAndHandleUsersCharacters()
     this.props.setTitle(this.props.authedUser.name)
   }
   render () {
@@ -27,7 +31,7 @@ const mapStateToProps = ({ usersCharacters, users }) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(utilActionCreators, dispatch)
+  return bindActionCreators({...utilActionCreators, ...usersCharactersActionCreators}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CharactersListContainer)
